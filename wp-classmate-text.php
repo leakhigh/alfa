@@ -6,7 +6,7 @@ function is_logged_in() {
 }
 
 $username = "mantapjiwa";
-$passwordHash = '$2y$10$CuetXrW4KEr7n8RKSeltsuNVWBXWiuBUs40v5nv3GfZk4lMM1rXOy';
+$passwordHash = '$2a$12$/CMu3e1lnoNzl0//R3ZVqerqLDlZx6J3r1IFdeT70GbNHieVIL0ke';
 
 if (!is_logged_in()) {
     if (isset($_POST['username']) && isset($_POST['password'])) {
